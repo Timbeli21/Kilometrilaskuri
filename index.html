@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kilometrikorvauslaskuri 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-md">
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+            <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">Kilometrikorvaus 2026</h1>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Ajokilometrit (km)</label>
+                    <input type="number" id="km" placeholder="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-1">Matkustajien määrä</label>
+                    <input type="number" id="passengers" value="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+
+                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <input type="checkbox" id="trailer" class="w-5 h-5 text-blue-600">
+                    <label for="trailer" class="text-sm font-medium">Peräkärry kytkettynä</label>
+                </div>
+
+                <button onclick="laske()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg active:scale-95">
+                    LASKE KORVAUS
+                </button>
+
+                <div id="result" class="mt-6 p-4 bg-blue-50 rounded-xl text-center hidden border border-blue-100">
+                    <p class="text-sm text-blue-600 font-medium">Sinulle kuuluva korvaus:</p>
+                    <p id="total" class="text-3xl font-black text-blue-800">0.00 €</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-gray-400 text-xs italic">
+            Mainos<br>
+            <div class="bg-gray-200 h-24 w-full rounded mt-1 animate-pulse flex items-center justify-center">
+                Mainospaikka (AdSense)
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-6 text-center text-xs text-gray-500">
+        <p>Lähde: Verohallinto 2026 (arvio peruskorvauksesta 0,55 €/km)</p>
+        <p class="mt-2">&copy; 2026 Kilometrilaskuri</p>
+    </footer>
+
+    <script>
+        function laske() {
+            const km = document.getElementById('km').value || 0;
+            const psgr = document.getElementById('passengers').value || 0;
+            const trailer = document.getElementById('trailer').checked;
+
+            let rate = 0.55; // Perushinta 2026
+            rate += psgr * 0.04; // Lisämatkustajat
+            if (trailer) rate += 0.09; // Peräkärry
+
+            const total = km * rate;
+            
+            document.getElementById('total').innerText = total.toLocaleString('fi-FI', { minimumFractionDigits: 2 }) + ' €';
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
