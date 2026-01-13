@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilometrikorvauslaskuri 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX" crossorigin="anonymous"></script>
-</head>
+    </head>
 <body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
 
     <main class="flex-grow container mx-auto px-4 py-8 max-w-md">
@@ -41,55 +40,29 @@
                 </div>
             </div>
         </div>
-
-        <div class="mt-8 text-center text-gray-400 text-xs italic">
-            Mainos<br>
-            <div class="bg-gray-200 h-24 w-full rounded mt-1 animate-pulse flex items-center justify-center">
-                Mainospaikka (AdSense)
-            </div>
-        </div>
     </main>
 
     <footer class="p-6 text-center text-xs text-gray-500">
         <p>Lähde: Verohallinto 2026 (arvio peruskorvauksesta 0,55 €/km)</p>
-        <p class="mt-2">&copy; 2026 Kilometrilaskuri</p>
+        <div class="mt-4 p-2 border-t border-gray-200">
+            <p><strong>Tietosuoja:</strong> Käytämme sivustolla evästeitä mainosten personointiin ja analysointiin. Lue lisää Googlen tietosuojakäytännöistä. <br> &copy; 2026 Kilometrilaskuri</p>
+        </div>
     </footer>
-<div class="text-center p-4 bg-gray-100 text-[10px] text-gray-500">
-        <p>Käytämme sivustolla evästeitä mainosten personointiin ja liikenteen analysointiin. Lue lisää Googlen tietosuojakäytännöistä. &copy; 2026 Kilometrilaskuri</p>
-    </div>
 
     <script>
-   <script>
         function laske() {
-            // Haetaan arvot ja varmistetaan, että ne ovat numeroita
             const km = parseFloat(document.getElementById('km').value) || 0;
             const psgr = parseInt(document.getElementById('passengers').value) || 0;
             const trailer = document.getElementById('trailer').checked;
 
-            // Peruskorvaus 2026 (0,55 €)
             let rate = 0.55; 
-            
-            // Lisätään matkustajista (0,04 € / matkustaja)
             rate += (psgr * 0.04); 
-            
-            // Peräkärrylisä (0,09 €)
-            if (trailer) {
-                rate += 0.09;
-            }
+            if (trailer) rate += 0.09;
 
-            // Lasketaan kokonaissumma
             const total = km * rate;
             
-            // Näytetään tulos ja muotoillaan se kauniiksi
-            const resultDiv = document.getElementById('result');
-            const totalSpan = document.getElementById('total');
-            
-            totalSpan.innerText = total.toLocaleString('fi-FI', { 
-                minimumFractionDigits: 2, 
-                maximumFractionDigits: 2 
-            }) + ' €';
-            
-            resultDiv.classList.remove('hidden');
+            document.getElementById('total').innerText = total.toLocaleString('fi-FI', { minimumFractionDigits: 2 }) + ' €';
+            document.getElementById('result').classList.remove('hidden');
         }
     </script>
 </body>
