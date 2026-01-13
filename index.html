@@ -59,20 +59,37 @@
     </div>
 
     <script>
-    <script>
+   <script>
         function laske() {
-            const km = document.getElementById('km').value || 0;
-            const psgr = document.getElementById('passengers').value || 0;
+            // Haetaan arvot ja varmistetaan, että ne ovat numeroita
+            const km = parseFloat(document.getElementById('km').value) || 0;
+            const psgr = parseInt(document.getElementById('passengers').value) || 0;
             const trailer = document.getElementById('trailer').checked;
 
-            let rate = 0.55; // Perushinta 2026
-            rate += psgr * 0.04; // Lisämatkustajat
-            if (trailer) rate += 0.09; // Peräkärry
+            // Peruskorvaus 2026 (0,55 €)
+            let rate = 0.55; 
+            
+            // Lisätään matkustajista (0,04 € / matkustaja)
+            rate += (psgr * 0.04); 
+            
+            // Peräkärrylisä (0,09 €)
+            if (trailer) {
+                rate += 0.09;
+            }
 
+            // Lasketaan kokonaissumma
             const total = km * rate;
             
-            document.getElementById('total').innerText = total.toLocaleString('fi-FI', { minimumFractionDigits: 2 }) + ' €';
-            document.getElementById('result').classList.remove('hidden');
+            // Näytetään tulos ja muotoillaan se kauniiksi
+            const resultDiv = document.getElementById('result');
+            const totalSpan = document.getElementById('total');
+            
+            totalSpan.innerText = total.toLocaleString('fi-FI', { 
+                minimumFractionDigits: 2, 
+                maximumFractionDigits: 2 
+            }) + ' €';
+            
+            resultDiv.classList.remove('hidden');
         }
     </script>
 </body>
