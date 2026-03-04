@@ -1,113 +1,101 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9408014953487690"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9408014953487690" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kilometrikorvauslaskuri 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+</head>
 <body class="bg-gray-50 text-gray-900 font-sans min-h-screen">
 
     <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-8">
 
-    <aside class="space-y-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-blue-700 mb-2">Kilometrikorvaus 2026</h3>
-            <p class="text-sm text-gray-600">Verovapaa matkakustannusten korvaus on 0,55 € kilometriltä vuonna 2026.</p>
-        </div>
-    </aside>
+        <aside class="space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-blue-700 mb-2">Kilometrikorvaus 2026</h3>
+                <p class="text-sm text-gray-600">Verovapaa matkakustannusten korvaus on 0,55 € kilometriltä vuonna 2026.</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                <h4 class="font-bold text-blue-800 text-xs uppercase mb-2">Pikaluvut</h4>
+                <ul class="text-sm space-y-1">
+                    <li>🚗 Perus: 0,55 €</li>
+                    <li>👥 Matkustaja: +0,04 €</li>
+                    <li>🛒 Peräkärry: +0,09 €</li>
+                </ul>
+            </div>
+        </aside>
 
-    <main class="md:col-span-2">
-        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+        <main class="md:col-span-2 space-y-8">
             
-            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">Kilometrikorvaus 2026</h1>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Ajokilometrit (km)</label>
+                        <input type="number" id="km" placeholder="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
 
-        <div class="mt-10 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-            <h2 class="text-xl font-bold mb-4 text-blue-800">Tietoa kilometrikorvauksista</h2>
-            <p class="text-gray-700 mb-4">Kilometrikorvaus on tarkoitettu kattamaan oman auton käytöstä aiheutuvat kulut, kuten polttoaineen, vakuutukset ja kulumisen. Vuonna 2026 peruskorvaus nousi 0,55 euroon.</p>
-            <h3 class="font-bold mb-2 text-gray-800">Kuka voi saada korvausta?</h3>
-            <p class="text-gray-700">Korvausta voi saada työntekijä, joka käyttää omaa autoaan työtehtävien hoitoon. Muista, että koti-työpaikka-väli ei yleensä oikeuta tähän korvaukseen.</p>
-        </div>
-    </main>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Matkustajien määrä</label>
+                        <input type="number" id="passengers" value="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
 
-    <aside class="space-y-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-gray-800 mb-2">Pika-opas</h3>
-            <p class="text-sm text-gray-600 italic">"Muista tallentaa ajopäiväkirja pilveen tai paperille – se on paras vakuutuksesi verottajaa vastaan."</p>
-        </div>
-    </aside>
+                    <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <input type="checkbox" id="trailer" class="w-5 h-5 text-blue-600">
+                        <label for="trailer" class="text-sm font-medium">Peräkärry kytkettynä</label>
+                    </div>
 
-</div>
-            <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">Kilometrikorvaus 2026</h1>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium mb-1">Ajokilometrit (km)</label>
-                    <input type="number" id="km" placeholder="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-                </div>
+                    <button onclick="laske()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg active:scale-95">
+                        LASKE KORVAUS
+                    </button>
 
-                <div>
-                    <label class="block text-sm font-medium mb-1">Matkustajien määrä</label>
-                    <input type="number" id="passengers" value="0" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-                </div>
-
-                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                    <input type="checkbox" id="trailer" class="w-5 h-5 text-blue-600">
-                    <label for="trailer" class="text-sm font-medium">Peräkärry kytkettynä</label>
-                </div>
-
-                <button onclick="laske()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg active:scale-95">
-                    LASKE KORVAUS
-                </button>
-
-                <div id="result" class="mt-6 p-4 bg-blue-50 rounded-xl text-center hidden border border-blue-100">
-                    <p class="text-sm text-blue-600 font-medium">Sinulle kuuluva korvaus:</p>
-                    <p id="total" class="text-3xl font-black text-blue-800">0.00 €</p>
+                    <div id="result" class="mt-6 p-4 bg-blue-50 rounded-xl text-center hidden border border-blue-100">
+                        <p class="text-sm text-blue-600 font-medium">Sinulle kuuluva korvaus:</p>
+                        <p id="total" class="text-3xl font-black text-blue-800">0.00 €</p>
+                    </div>
                 </div>
             </div>
-        </div> <div class="mt-12 space-y-8 text-gray-800 border-t pt-8">
-    <section>
-        <h2 class="text-xl font-bold text-blue-800 mb-3">Mikä on kilometrikorvaus 2026?</h2>
-        <p class="text-sm leading-relaxed">
-            Kilometrikorvaus on työnantajan maksama verovapaa korvaus oman auton käytöstä työajoissa. Vuonna 2026 peruskorvauksen ennustettu määrä on 0,55 euroa kilometriltä. Tämä korvaus on tarkoitettu kattamaan auton polttoaine-, vakuutus- ja huoltokuluja, joita työkäytöstä aiheutuu.
-        </p>
-    </section>
 
-    <section>
-        <h2 class="text-xl font-bold text-blue-800 mb-3">Miten matkalaskuri laskee korvauksen?</h2>
-        <p class="text-sm leading-relaxed mb-3">
-            Laskuri huomioi Verohallinnon asettamat lisät, jotka nostavat kilometrikohtaista korvausta:
-        </p>
-        <ul class="list-disc ml-5 text-sm space-y-2">
-            <li><strong>Matkustajalisä:</strong> Jokaisesta mukana olevasta työmatkaan liittyvästä matkustajasta korvaus nousee 0,04 €/km.</li>
-            <li><strong>Peräkärrylisä:</strong> Jos vedät peräkärryä, korvaus nousee 0,09 €/km.</li>
-            <li><strong>Erikoistilanteet:</strong> Raskaat kuormat tai poikkeukselliset ajo-olosuhteet voivat myös vaikuttaa lopulliseen summaan.</li>
-        </ul>
-    </section>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6">
+                <section>
+                    <h2 class="text-xl font-bold text-blue-800 mb-3">Mikä on kilometrikorvaus 2026?</h2>
+                    <p class="text-sm leading-relaxed text-gray-700">
+                        Kilometrikorvaus on työnantajan maksama verovapaa korvaus oman auton käytöstä työajoissa. Vuonna 2026 peruskorvauksen määrä on 0,55 euroa kilometriltä. Korvaus kattaa polttoaineet, vakuutukset ja huollot.
+                    </p>
+                </section>
 
-    <section class="bg-blue-50 p-5 rounded-xl border border-blue-100">
-        <h2 class="text-lg font-bold text-blue-800 mb-2">Usein kysyttyä kilometrikorvauksista</h2>
-        <div class="space-y-4">
-            <div>
-                <p class="font-bold text-sm">Onko kilometrikorvaus verotettavaa tuloa?</p>
-                <p class="text-sm">Ei, Verohallinnon vahvistama kilometrikorvaus on saajalleen täysin verovapaata tuloa tiettyyn rajaan asti.</p>
+                <section>
+                    <h2 class="text-xl font-bold text-blue-800 mb-3">Miten matkalaskuri laskee korvauksen?</h2>
+                    <ul class="list-disc ml-5 text-sm text-gray-700 space-y-2">
+                        <li><strong>Matkustajalisä:</strong> +0,04 €/km per matkustaja.</li>
+                        <li><strong>Peräkärrylisä:</strong> +0,09 €/km.</li>
+                    </ul>
+                </section>
+
+                <section class="bg-blue-50 p-5 rounded-xl border border-blue-100">
+                    <h2 class="text-lg font-bold text-blue-800 mb-2">Usein kysyttyä</h2>
+                    <div class="space-y-3">
+                        <p class="text-sm"><strong>Onko korvaus verovapaata?</strong> Kyllä, Verohallinnon rajoissa maksettu korvaus on täysin verovapaata.</p>
+                        <p class="text-sm"><strong>Miten haen korvausta?</strong> Täytä matkalasku työnantajallesi, josta näkyy reitti ja kilometrit.</p>
+                    </div>
+                </section>
             </div>
-            <div>
-                <p class="font-bold text-sm">Miten haen korvausta?</p>
-                <p class="text-sm">Yleensä korvausta haetaan täyttämällä matkalasku, josta käy ilmi matkan tarkoitus, reitti ja kilometrimäärä.</p>
-            </div>
-        </div>
-    </section>
-</div>
-    </main>
+        </main>
 
-    <footer class="p-6 text-center text-xs text-gray-500">
-        <p>Lähde: Verohallinto 2026 (arvio peruskorvauksesta 0,55 €/km)</p>
-        <div class="mt-4 p-2 border-t border-gray-200">
-            <p><strong>Tietosuoja:</strong> Käytämme sivustolla evästeitä mainosten personointiin ja analysointiin. Lue lisää Googlen tietosuojakäytännöistä. <br> &copy; 2026 Kilometrilaskuri</p>
-        </div>
+        <aside class="space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-gray-800 mb-2">Pika-opas</h3>
+                <p class="text-sm text-gray-600 italic">"Muista tallentaa ajopäiväkirja pilveen tai paperille – se on paras vakuutuksesi."</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-2xl text-xs text-gray-500">
+                <p>Lähde: Verohallinto 2026</p>
+            </div>
+        </aside>
+
+    </div> <footer class="mt-20 py-10 border-t border-gray-200 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Kilometrilaskuri2026.fi | <a href="/tietosuoja.html" class="underline hover:text-blue-600">Tietosuojaseloste</a></p>
     </footer>
 
     <script>
@@ -126,10 +114,6 @@
             document.getElementById('result').classList.remove('hidden');
         }
     </script>
-  
-    <footer class="mt-20 py-10 border-t border-gray-200 text-center text-gray-500 text-sm">
-    <p>&copy; 2026 Kilometrilaskuri2026.fi | <a href="/tietosuoja.html" class="underline hover:text-blue-600">Tietosuojaseloste</a></p>
-</footer>
 
 </body>
-</html> 
+</html>
